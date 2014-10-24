@@ -161,16 +161,15 @@ type:section
 
 glmtools includes basic functions for calculating physical derivatives and thermal properties of model output, and plotting functionality. glmtools uses GLMr to run GLM
 
-glmtools
+glmtools section 1
 ========================================================
 id: section1
 type:sub-section
-glmtools section 1  
 Goals
  - understand model inputs  
  - run model  
  - visualize results
- 
+  
  
 glmtools
 ========================================================
@@ -228,13 +227,13 @@ print(nml)
    timefmt = 2
    start = '2011-04-01 00:00:00'
    stop = '2011-09-02 00:00:00'
-   dt = 86400
+   dt = 3600
 /
 &output
    out_dir = '.'
    out_fn = 'output'
    out_lkn = .false.
-   nsave = 1
+   nsave = 24
    csv_point_nlevs = 2
    csv_point_fname = 'tempZ_'
    csv_point_at = 2, 1
@@ -255,7 +254,7 @@ print(nml)
    rain_sw = .false.
    snow_sw = .false.
    atm_stab = .true.
-   subdaily = .true.
+   subdaily = .false.
    meteo_fl = 'Anvil_driver.csv'
    wind_factor = 1
    ce = 0.0014
@@ -351,11 +350,11 @@ compare_to_field(nc_file, field_file,
 
 ```
     DateTime   obs   mod
-1 2011-05-08 2.403 1.372
-2 2011-06-05 6.027 6.858
-3 2011-06-28 4.302 3.504
-4 2011-07-19 5.334 3.829
-5 2011-08-01 5.334 4.235
+1 2011-05-08 2.403 5.255
+2 2011-06-05 6.027 5.551
+3 2011-06-28 4.302 4.099
+4 2011-07-19 5.334 4.149
+5 2011-08-01 5.334 4.163
 6 2011-08-15 1.372 5.334
 7 2011-08-29 4.796 6.858
 ```
@@ -367,7 +366,7 @@ compare_to_field(nc_file, field_file,
 ```
 
 ```
-[1] 4.044
+[1] 3.031
 ```
 glmtools
 ========================================================
@@ -417,13 +416,13 @@ print(nml)
    timefmt = 2
    start = '2011-04-01 00:00:00'
    stop = '2011-09-02 00:00:00'
-   dt = 86400
+   dt = 3600
 /
 &output
    out_dir = '.'
    out_fn = 'output'
    out_lkn = .false.
-   nsave = 1
+   nsave = 24
    csv_point_nlevs = 2
    csv_point_fname = 'tempZ_'
    csv_point_at = 2, 1
@@ -444,7 +443,7 @@ print(nml)
    rain_sw = .false.
    snow_sw = .false.
    atm_stab = .true.
-   subdaily = .true.
+   subdaily = .false.
    meteo_fl = 'Anvil_driver.csv'
    wind_factor = 1
    ce = 0.0014
@@ -502,13 +501,13 @@ compare_to_field(nc_file, field_file,
 
 ```
     DateTime   obs   mod
-1 2011-05-08 2.403 5.510
-2 2011-06-05 6.027 1.846
-3 2011-06-28 4.302 2.598
-4 2011-07-19 5.334 3.317
-5 2011-08-01 5.334 2.715
-6 2011-08-15 1.372 4.216
-7 2011-08-29 4.796 5.745
+1 2011-05-08 2.403 5.524
+2 2011-06-05 6.027 5.001
+3 2011-06-28 4.302 3.394
+4 2011-07-19 5.334 4.123
+5 2011-08-01 5.334 3.743
+6 2011-08-15 1.372 5.334
+7 2011-08-29 4.796 6.858
 ```
 
 ```r
@@ -518,7 +517,7 @@ compare_to_field(nc_file, field_file,
 ```
 
 ```
-[1] 4.232
+[1] 3.042
 ```
 
 glmtools

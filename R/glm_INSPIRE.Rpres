@@ -137,16 +137,15 @@ type:section
 
 glmtools includes basic functions for calculating physical derivatives and thermal properties of model output, and plotting functionality. glmtools uses GLMr to run GLM
 
-glmtools
+glmtools section 1
 ========================================================
 id: section1
 type:sub-section
-glmtools section 1  
 Goals
  - understand model inputs  
  - run model  
  - visualize results
- 
+  
  
 glmtools
 ========================================================
@@ -157,7 +156,7 @@ library(glmtools)
 ```{r,echo=FALSE}
 nml_file <- '../glm_egs/glm.nml'
 nml <- read_nml(nml_file)
-nml <- set_nml(nml, arg_list = list('min_layer_thick'= 0.2,'Kw'=0.55))
+nml <- set_nml(nml, arg_list = list('min_layer_thick'= 0.2,'Kw'=0.55,'nsave'=24,'dt'=3600,'subdaily'=FALSE))
 write_nml(nml, nml_file)             
 ````
 ```{r, plot_meteo, fig.width=18, fig.height=6}
