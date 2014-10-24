@@ -14,6 +14,41 @@
   font-size: 1.2em !important;
   line-height: 64px !important;
 }
+
+.state-background{background:#fff !important;}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6{color:rgb(0,51,102) !important;}
+
+.reveal p{color:rgb(150,150,150) !important;}
+
+.reveal .controls div.navigate-left,
+.reveal .controls div.navigate-left.enabled {
+  border-right-color: rgb(0,51,102);
+}
+
+.reveal .controls div.navigate-right,
+.reveal .controls div.navigate-right.enabled {
+  border-left-color: rgb(0,51,102);
+}
+
+.reveal .controls div.navigate-left.enabled:hover {
+  border-right-color: rgb(150,150,150);
+}
+
+.reveal .controls div.navigate-right.enabled:hover {
+  border-left-color: rgb(150,150,150);
+}
+
+.large a{color:rgb(0,51,102) !important;}
+
+.large a:hover{color:rgb(150,150,150)!important;}
+
+
 </style>
 Lake modeling workshop
 ========================================================
@@ -23,10 +58,12 @@ width: 1440
 height: 900
 
 
+
 GLM overview
 ====================================
 id: slide1
 type:section
+
 
 GLM overview
 ====================================
