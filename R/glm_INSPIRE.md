@@ -1,9 +1,27 @@
+<style type="text/css">
+.indent {
+  padding-left: 2em !important;
+}
+
+.centered {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.large {
+  font-size: 1.2em !important;
+  line-height: 64px !important;
+}
+</style>
 Lake modeling workshop
 ========================================================
 author: Jordan S Read, Paul C Hanson, Hilary Dugan, Craig Snortheim
 font-family: 'Helvetica'
 width: 1440
 height: 900
+
 
 GLM overview
 ====================================
@@ -27,43 +45,79 @@ more stuff
 GLMr
 ========================================================
 type:section
-GLMr R package  
-Maintainer: Luke A Winslow  
-Authors: Luke A Winslow, Jordan S Read  
-Location: https://github.com/GLEON/glmtools
 
-<small>GLMr holds the current version of the "General Lake Model",  
-and can run the model on all platforms (windows, mac, linux)</small>
+<div class="indent large">GLMr R package</div>
+<div class="indent large">Maintainer: Luke A Winslow  </div>
+<div class="indent large">Authors: Luke A Winslow, Jordan S Read  </div>
+<div class="indent large">Location: <a target="_blank" title="glmtools on github" href="https://github.com/GLEON/GLMr">https://github.com/GLEON/GLMr</a></div>
+
+GLMr holds the current version of the "General Lake Model",  
+and can run the model on all platforms (windows, mac, linux)
 
 GLMr
 ========================================================
-incremental: true
+incremental: false
 type:prompt
-load the GLMr package in R
+left: 50%
+
+<div style="text-align: center; width: 100%;"><span class=large>GLMr Code in R:</span></div>
+
 
 ```r
-library(GLMr) # 
-```
-get the current version of GLM
+library(GLMr) 
 
-```r
 glm_version()
-```
-find the included example glm.nml
 
-```r
 nml_template_path()
 ```
+***
+<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
+
+ - load the GLMr package in R  
+
+ - get the current version of GLM  
+    
+ - find the included example glm.nml  
+
 GLMr
 ========================================================
-incremental: true
+incremental: false
 type:prompt
-run the GLM model on your computer
+left: 50%
+id: sectionRun
+
+<div style="text-align: center; width: 100%;"><span class=large>GLMr Code in R:</span></div>
+
 
 ```r
 run_glm(sim_folder)
 ```
-get the current citation for GLM
+
+```r
+Reading config from glm.nml
+No WQ config
+No diffuser data, setting default values
+---------------------
+| GLM Version 1.4.0 |
+---------------------
+nDays 32767 timestep 86400.000000
+Simulation begins...
+Running day  2455806, 100.00% of days complete
+
+---------------------
+     Run Complete
+```
+***
+<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
+
+ - Run the GLM model on your computer
+ 
+GLMr
+========================================================
+incremental: false
+type:prompt
+left: 60%
+<div style="text-align: center; width: 100%;"><span class=large>GLMr Code in R:</span></div>
 
 ```r
 citation('GLMr')
@@ -89,17 +143,23 @@ A BibTeX entry for LaTeX users is
 As GLM changes, this package will change with it, and the citation
 may change too. Find GLM version with 'glm_version()'.
 ```
+***
+<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
+
+ - Get the current citation for GLM
+ 
+
 
 glmtools
 ========================================================
 type:section
-glmtools R package  
-Maintainer: Jordan S Read  
-Authors: Jordan S Read, Luke A Winslow  
-Location: https://github.com/USGS-R/glmtools
 
-<small>glmtools includes basic functions for calculating physical derivatives and thermal properties of model output, and plotting functionality. glmtools uses GLMr to run GLM</small>
+<div class="indent large">glmtools R package</div>
+<div class="indent large">Maintainer: Jordan S Read   </div>
+<div class="indent large">Authors: Jordan S Read, Luke A Winslow  </div>
+<div class="indent large">Location: <a target="_blank" title="glmtools on github" href="https://github.com/USGS-R/glmtools">https://github.com/USGS-R/glmtools</a></div>
 
+glmtools includes basic functions for calculating physical derivatives and thermal properties of model output, and plotting functionality. glmtools uses GLMr to run GLM
 
 glmtools
 ========================================================
@@ -475,6 +535,7 @@ type:sub-section
 glmtools
 ========================================================
 type:prompt
+left: 80%
 First column
 sdf  
 sdf  

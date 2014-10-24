@@ -773,7 +773,7 @@ hljs.initHighlightingOnLoad();
    
   
 
-
+<style type="text/css">.indent {  padding-left: 2em !important;}.centered {  width: 100%;  margin-left: auto;  margin-right: auto;  text-align: center;}.large {  font-size: 1.2em !important;  line-height: 64px !important;}</style>
 
 
 
@@ -825,52 +825,95 @@ hljs.initHighlightingOnLoad();
 <section data-state="section" data-transition="linear" data-transition-speed="default">
 <h2>GLMr</h2>
 <div class="slideContent" >
-<p>GLMr R package<br/>
-Maintainer: Luke A Winslow<br/>
-Authors: Luke A Winslow, Jordan S Read<br/>
-Location: <a href="https://github.com/GLEON/glmtools">https://github.com/GLEON/glmtools</a></p>
+<div class="indent large">GLMr R package</div>
 
-<p><small>GLMr holds the current version of the &ldquo;General Lake Model&rdquo;,<br/>
-and can run the model on all platforms (windows, mac, linux)</small></p>
+<div class="indent large">Maintainer: Luke A Winslow  </div>
 
-</div>
+<div class="indent large">Authors: Luke A Winslow, Jordan S Read  </div>
 
-</section>
-<section data-state="prompt" data-transition="linear" data-transition-speed="default">
-<h3>GLMr</h3>
-<div class="slideContent" >
-<p>load the GLMr package in R</p>
+<div class="indent large">Location: <a target="_blank" title="glmtools on github" href="https://github.com/GLEON/GLMr">https://github.com/GLEON/GLMr</a></div>
 
-<pre class="fragment"><code class="r">library(GLMr) # 
-</code></pre>
-
-<p class="fragment">get the current version of GLM</p>
-
-<pre class="fragment"><code class="r">glm_version()
-</code></pre>
-
-<p class="fragment">find the included example glm.nml</p>
-
-<pre class="fragment"><code class="r">nml_template_path()
-</code></pre>
+<p>GLMr holds the current version of the &ldquo;General Lake Model&rdquo;,<br/>
+and can run the model on all platforms (windows, mac, linux)</p>
 
 </div>
 
 </section>
 <section data-state="prompt" data-transition="linear" data-transition-speed="default">
 <h3>GLMr</h3>
-<div class="slideContent" >
-<p>run the GLM model on your computer</p>
+<div class="column column1 slideContent" style="width: 48%;" >
+<div style="text-align: center; width: 100%;"><span class=large>GLMr Code in R:</span></div>
 
-<pre class="fragment"><code class="r">run_glm(sim_folder)
+<pre><code class="r">library(GLMr) 
+
+glm_version()
+
+nml_template_path()
 </code></pre>
 
-<p class="fragment">get the current citation for GLM</p>
 
-<pre class="fragment"><code class="r">citation(&#39;GLMr&#39;)
+</div>
+
+<div class="column column2 slideContent" style="width: 48%;" >
+
+
+<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
+
+<ul>
+<li><p>load the GLMr package in R  </p></li>
+<li><p>get the current version of GLM  </p></li>
+<li><p>find the included example glm.nml  </p></li>
+</ul>
+
+</div>
+
+</section>
+<section id="sectionRun" data-state="prompt" data-transition="linear" data-transition-speed="default">
+<h3>GLMr</h3>
+<div class="column column1 slideContent" style="width: 48%;" >
+<div style="text-align: center; width: 100%;"><span class=large>GLMr Code in R:</span></div>
+
+<pre><code class="r">run_glm(sim_folder)
 </code></pre>
 
-<pre class="fragment"><code>
+<pre><code class="r">Reading config from glm.nml
+No WQ config
+No diffuser data, setting default values
+---------------------
+| GLM Version 1.4.0 |
+---------------------
+nDays 32767 timestep 86400.000000
+Simulation begins...
+Running day  2455806, 100.00% of days complete
+
+---------------------
+     Run Complete
+</code></pre>
+
+
+</div>
+
+<div class="column column2 slideContent" style="width: 48%;" >
+
+
+<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
+
+<ul>
+<li>Run the GLM model on your computer</li>
+</ul>
+
+</div>
+
+</section>
+<section data-state="prompt" data-transition="linear" data-transition-speed="default">
+<h3>GLMr</h3>
+<div class="column column1 slideContent" style="width: 58%;" >
+<div style="text-align: center; width: 100%;"><span class=large>GLMr Code in R:</span></div>
+
+<pre><code class="r">citation(&#39;GLMr&#39;)
+</code></pre>
+
+<pre><code>
 To cite GLM in publications use:
 
   Hipsey, M.R., Bruce, L.C., Hamilton, D.P., 2013. GLM General
@@ -890,18 +933,33 @@ As GLM changes, this package will change with it, and the citation
 may change too. Find GLM version with &#39;glm_version()&#39;.
 </code></pre>
 
+
+</div>
+
+<div class="column column2 slideContent" style="width: 38%;" >
+
+
+<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
+
+<ul>
+<li>Get the current citation for GLM</li>
+</ul>
+
 </div>
 
 </section>
 <section data-state="section" data-transition="linear" data-transition-speed="default">
 <h2>glmtools</h2>
 <div class="slideContent" >
-<p>glmtools R package<br/>
-Maintainer: Jordan S Read<br/>
-Authors: Jordan S Read, Luke A Winslow<br/>
-Location: <a href="https://github.com/USGS-R/glmtools">https://github.com/USGS-R/glmtools</a></p>
+<div class="indent large">glmtools R package</div>
 
-<p><small>glmtools includes basic functions for calculating physical derivatives and thermal properties of model output, and plotting functionality. glmtools uses GLMr to run GLM</small></p>
+<div class="indent large">Maintainer: Jordan S Read   </div>
+
+<div class="indent large">Authors: Jordan S Read, Luke A Winslow  </div>
+
+<div class="indent large">Location: <a target="_blank" title="glmtools on github" href="https://github.com/USGS-R/glmtools">https://github.com/USGS-R/glmtools</a></div>
+
+<p>glmtools includes basic functions for calculating physical derivatives and thermal properties of model output, and plotting functionality. glmtools uses GLMr to run GLM</p>
 
 </div>
 
@@ -1277,7 +1335,7 @@ compare_to_field(nc_file, field_file,
 </section>
 <section data-state="prompt" data-transition="linear" data-transition-speed="default">
 <h3>glmtools</h3>
-<div class="column column1 slideContent" >
+<div class="column column1 slideContent" style="width: 78%;" >
 <p>First column
 sdf<br/>
 sdf  </p>
@@ -1285,7 +1343,7 @@ sdf  </p>
 
 </div>
 
-<div class="column column2 slideContent" >
+<div class="column column2 slideContent" style="width: 18%;" >
 
 
 <p>Second column<br/>
