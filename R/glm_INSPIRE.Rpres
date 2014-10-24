@@ -27,50 +27,76 @@ more stuff
 GLMr
 ========================================================
 type:section
-author: Lukies
-GLMr package !!!
+GLMr R package  
+Maintainer: Luke A Winslow  
+Authors: Luke A Winslow, Jordan S Read  
+Location: https://github.com/GLEON/glmtools
+
+<small>GLMr holds the current version of the "General Lake Model",  
+and can run the model on all platforms (windows, mac, linux)</small>
+
 GLMr
 ========================================================
-type:prompt
 incremental: true
+load the GLMr package in R
 ```{r}
-library(GLMr) # loads the GLMr package
+library(GLMr) # 
 ```
+get the current version of GLM
 ```{r, eval=FALSE}
-glm_version() # get the current version of GLM
+glm_version()
 ```
+find the included example glm.nml
 ```{r, eval=FALSE}
-nml_template_path() # find the included example glm.nml
+nml_template_path()
 ```
-```{r, eval=FALSE}
-run_glm() # run GLM
-```
-```{r}
-citation('GLMr') # get current citation for GLM
-```
-
 GLMr
 ========================================================
-
-```{r}
-nml_template_path() # find the example glm.nml
-```
-
-GLMr
-========================================================
-
-```{r}
-sim_folder <- system.file('extdata/sim', 
-                          package = 'GLMr')
+incremental: true
+run the GLM model on your computer
+```{r, eval=FALSE}
 run_glm(sim_folder)
+```
+get the current citation for GLM
+```{r}
+citation('GLMr')
 ```
 
 glmtools
 ========================================================
-```{r, plot_meteo, fig.width=12, fig.height=6}
+type:section
+GLMr R package  
+Maintainer: Jordan S Read  
+Authors: Jordan S Read, Luke A Winslow  
+Location: https://github.com/USGS-R/glmtools
+
+<small>glmtools includes basic functions for calculating physical derivatives and thermal properties of model output, and plotting functionality. glmtools uses GLMr to run GLM</small>
+
+
+glmtools
+========================================================
+id: section1
+type:sub-section
+glmtools section 1  
+Goals
+ - understand model inputs  
+ - run model  
+ - visualize results
+ 
+ 
+glmtools
+========================================================
+```{r}
 library(glmtools)
-nml_file <- system.file('extdata', 'glm.nml',
-                        package = 'glmtools')
+```
+```{r,echo=FALSE}
+nml_file <- '../glm_egs/glm.nml'
+nml <- read_nml(nml_file)
+nml <- set_nml(nml, arg_list = list('min_layer_thick'= 0.2,'Kw'=0.55))
+write_nml(nml, nml_file)             
+````
+```{r, plot_meteo, fig.width=18, fig.height=6}
+nml_file <- '../glm_egs/glm.nml'
 
 plot_meteo(nml_file, fig_path = FALSE)
 ```
@@ -92,35 +118,50 @@ get_nml_value(nml,'Kw')
 ```
 glmtools
 ========================================================
-```{r, plot_temp, fig.width=12, fig.height=3}
-sim_folder <- system.file('extdata/sim', 
-                          package = 'GLMr')
+incremental: false
+```{r, plot_temp, fig.width=12, fig.height=4}
+sim_folder <- '../glm_egs'
 run_glm(sim_folder)
-nc_file <- paste0(sim_folder,'/output.nc')
+nc_file <- file.path(sim_folder,'output.nc')
 plot_temp(file = nc_file, fig_path = FALSE)
 ```
 
 glmtools
 ========================================================
+id: section2
+type:sub-section
+glmtools section 2  
+Goals
+ - validate/evaluate model outputs
+ - modify model parameters  
+ - run simulation with modified parameters
+ 
+ 
+glmtools
+========================================================
+incremental: true
 ```{r}
-field_file <- system.file('extdata', 
-                          'field_data.tsv', 
-                          package = 'glmtools')
+field_file <- '../glm_egs/field_data.tsv'
 
 compare_to_field(nc_file, field_file,
                  metric = 'thermo.depth', 
                  as_value = TRUE)
 ```
-
+```{r}
+compare_to_field(nc_file, field_file,
+                 metric = 'water.temperature', 
+                 as_value = FALSE)
+```
 glmtools
 ========================================================
+incremental: true
 ```{r}
-nml <- set_nml(nml,arg_name = 'Kw', 
+nml <- set_nml(nml, arg_name = 'Kw', 
                arg_val = 1.05)
-nml <- set_nml(nml,
-               arg_list = list(
-                 'min_layer_thick'=0.15, 
-                 'max_layers'=950))
+```
+```{r}
+nml <- set_nml(nml, arg_name = 'min_layer_thick',
+               arg_val = 0.15)
 ```
 ```{r}
 print(nml)
@@ -128,20 +169,38 @@ print(nml)
 
 glmtools
 ========================================================
+incremental: true
 ```{r}
-nml_file <- file.path(sim_folder, 'glm.nml')
 write_nml(glm_nml = nml, file = nml_file)
+```
+```{r}
 run_glm(sim_folder)
 ```
-
 glmtools
 ========================================================
+incremental: true
 ```{r}
 compare_to_field(nc_file, field_file,
                  metric = 'thermo.depth', 
                  as_value = TRUE)
 ```
+```{r}
+compare_to_field(nc_file, field_file,
+                 metric = 'water.temperature', 
+                 as_value = FALSE)
+```
 
+glmtools
+========================================================
+id: section3
+type:sub-section
+## glmtools section 3  
+### Goals
+ - ??  
+ - ??  
+ - run multi-lake simulations
+ 
+ 
 glmtools
 ========================================================
 ![alt text](glm-r.png)
