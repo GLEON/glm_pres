@@ -1,0 +1,147 @@
+Lake modeling workshop
+========================================================
+author: Jordan S Read, Paul C Hanson, Hilary Dugan, Craig Snortheim
+font-family: 'Helvetica'
+width: 1440
+height: 900
+
+GLM overview
+====================================
+id: slide1
+type:section
+
+GLM overview
+====================================
+type:sub-section
+more stuff
+
+GLM overview
+====================================
+type:prompt
+more stuff
+
+Why R?
+====================================
+more stuff
+
+GLMr
+========================================================
+type:section
+author: Lukies
+GLMr package !!!
+GLMr
+========================================================
+type:prompt
+incremental: true
+```{r}
+library(GLMr) # loads the GLMr package
+```
+```{r, eval=FALSE}
+glm_version() # get the current version of GLM
+```
+```{r, eval=FALSE}
+nml_template_path() # find the included example glm.nml
+```
+```{r, eval=FALSE}
+run_glm() # run GLM
+```
+```{r}
+citation('GLMr') # get current citation for GLM
+```
+
+GLMr
+========================================================
+
+```{r}
+nml_template_path() # find the example glm.nml
+```
+
+GLMr
+========================================================
+
+```{r}
+sim_folder <- system.file('extdata/sim', 
+                          package = 'GLMr')
+run_glm(sim_folder)
+```
+
+glmtools
+========================================================
+```{r, plot_meteo, fig.width=12, fig.height=6}
+library(glmtools)
+nml_file <- system.file('extdata', 'glm.nml',
+                        package = 'glmtools')
+
+plot_meteo(nml_file, fig_path = FALSE)
+```
+
+glmtools
+========================================================
+incremental: true
+```{r}
+nml <- read_nml(nml_file)
+print(nml)
+```
+
+glmtools
+========================================================
+incremental: true
+```{r}
+get_nml_value(nml,'sim_name')
+get_nml_value(nml,'Kw')
+```
+glmtools
+========================================================
+```{r, plot_temp, fig.width=12, fig.height=3}
+sim_folder <- system.file('extdata/sim', 
+                          package = 'GLMr')
+run_glm(sim_folder)
+nc_file <- paste0(sim_folder,'/output.nc')
+plot_temp(file = nc_file, fig_path = FALSE)
+```
+
+glmtools
+========================================================
+```{r}
+field_file <- system.file('extdata', 
+                          'field_data.tsv', 
+                          package = 'glmtools')
+
+compare_to_field(nc_file, field_file,
+                 metric = 'thermo.depth', 
+                 as_value = TRUE)
+```
+
+glmtools
+========================================================
+```{r}
+nml <- set_nml(nml,arg_name = 'Kw', 
+               arg_val = 1.05)
+nml <- set_nml(nml,
+               arg_list = list(
+                 'min_layer_thick'=0.15, 
+                 'max_layers'=950))
+```
+```{r}
+print(nml)
+```
+
+glmtools
+========================================================
+```{r}
+nml_file <- file.path(sim_folder, 'glm.nml')
+write_nml(glm_nml = nml, file = nml_file)
+run_glm(sim_folder)
+```
+
+glmtools
+========================================================
+```{r}
+compare_to_field(nc_file, field_file,
+                 metric = 'thermo.depth', 
+                 as_value = TRUE)
+```
+
+glmtools
+========================================================
+![alt text](glm-r.png)
