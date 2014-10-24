@@ -773,7 +773,7 @@ hljs.initHighlightingOnLoad();
    
   
 
-<style type="text/css">.indent {  padding-left: 2em !important;}.centered {  width: 100%;  margin-left: auto;  margin-right: auto;  text-align: center;}.large {  font-size: 1.2em !important;  line-height: 64px !important;}.state-background{background:#fff !important;}.reveal h1,.reveal h2,.reveal h3,.reveal h4,.reveal h5,.reveal h6{color:rgb(0,51,102) !important;}.reveal p,.reveal li{color:rgb(150,150,150) !important;}.reveal .controls div.navigate-left,.reveal .controls div.navigate-left.enabled {  border-right-color: rgb(0,51,102);}.reveal .controls div.navigate-right,.reveal .controls div.navigate-right.enabled {  border-left-color: rgb(0,51,102);}.reveal .controls div.navigate-left.enabled:hover {  border-right-color: rgb(150,150,150);}.reveal .controls div.navigate-right.enabled:hover {  border-left-color: rgb(150,150,150);}.large a{color:rgb(0,51,102) !important;}.large a:hover{color:rgb(150,150,150)!important;}</style>
+<style type="text/css">.indent {  padding-left: 2em !important;}.centered {  width: 100%;  margin-left: auto;  margin-right: auto;  text-align: center;}.large {  font-size: 1.2em !important;  line-height: 64px !important;}.state-background{background:#fff !important;}.reveal h1,.reveal h2,.reveal h3,.reveal h4,.reveal h5,.reveal h6{color:rgb(0,51,102) !important;}.reveal p,.reveal li{color:rgb(120,120,120) !important;}.reveal .controls div.navigate-left,.reveal .controls div.navigate-left.enabled {  border-right-color: rgb(0,51,102);}.reveal .controls div.navigate-right,.reveal .controls div.navigate-right.enabled {  border-left-color: rgb(0,51,102);}.reveal .controls div.navigate-left.enabled:hover {  border-right-color: rgb(150,150,150);}.reveal .controls div.navigate-right.enabled:hover {  border-left-color: rgb(150,150,150);}.large a{color:rgb(0,51,102) !important;}.large a:hover{color:rgb(150,150,150)!important;}</style>
 
 
 
@@ -1226,14 +1226,14 @@ print(nml)
 
 </section>
 <section data-state="prompt" data-transition="linear" data-transition-speed="default">
-<h3>glmtools evaluate model output</h3>
+<h3>glmtools: evaluate model output</h3>
 <div class="column column1 slideContent" style="width: 58%;" >
 <div style="text-align: center; width: 100%;"><span class=large>glmtools Code in R:</span></div>
 
 <pre><code class="r">field_file &lt;- &#39;../glm_egs/field_data.tsv&#39;
 compare_to_field(nc_file, field_file,
-                 metric = &#39;thermo.depth&#39;, 
-                 as_value = TRUE)
+        metric = &#39;thermo.depth&#39;, 
+        as_value = TRUE)
 </code></pre>
 
 <pre><code>    DateTime   obs   mod
@@ -1247,8 +1247,8 @@ compare_to_field(nc_file, field_file,
 </code></pre>
 
 <pre><code class="r">compare_to_field(nc_file, field_file,
-          metric = &#39;water.temperature&#39;, 
-          as_value = FALSE)
+        metric = &#39;water.temperature&#39;, 
+        as_value = FALSE)
 </code></pre>
 
 <pre><code>[1] 3.031
@@ -1263,32 +1263,30 @@ compare_to_field(nc_file, field_file,
 <div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
 
 <ul>
-<li><p>set output results file  </p></li>
-<li><p>plot water temperatures</p></li>
+<li><p>set field observations file  </p></li>
+<li><p>compare model vs obs for metrics</p></li>
 </ul>
 
 </div>
 
 </section>
 <section data-state="prompt" data-transition="linear" data-transition-speed="default">
-<h3>glmtools</h3>
-<div class="slideContent" >
-<pre class="fragment"><code class="r">nml &lt;- set_nml(nml, arg_name = &#39;Kw&#39;, 
-               arg_val = 1.05)
+<h3>glmtools: modify model parameters</h3>
+<div class="column column1 slideContent" style="width: 58%;" >
+<div style="text-align: center; width: 100%;"><span class=large>glmtools Code in R:</span></div>
+
+<pre><code class="r">nml &lt;- set_nml(nml, arg_name = &#39;Kw&#39;, 
+          arg_val = 1.05)
 </code></pre>
 
-<pre class="fragment"><code class="r">nml &lt;- set_nml(nml, arg_name = &#39;min_layer_thick&#39;,
-               arg_val = 0.15)
+<pre><code class="r">print(nml)
 </code></pre>
 
-<pre class="fragment"><code class="r">print(nml)
-</code></pre>
-
-<pre class="fragment"><code>&amp;glm_setup
+<pre><code>&amp;glm_setup
    sim_name = &#39;Simulationname&#39;
    max_layers = 950
    min_layer_vol = 0.5
-   min_layer_thick = 0.15
+   min_layer_thick = 0.2
    max_layer_thick = 1.5
    Kw = 1.05
    coef_inf_entrain = 0
@@ -1368,86 +1366,107 @@ compare_to_field(nc_file, field_file,
 /
 </code></pre>
 
-</div>
-
-</section>
-<section data-state="prompt" data-transition="linear" data-transition-speed="default">
-<h3>glmtools</h3>
-<div class="slideContent" >
-<pre class="fragment"><code class="r">write_nml(glm_nml = nml, file = nml_file)
-</code></pre>
-
-<pre class="fragment"><code class="r">run_glm(sim_folder)
-</code></pre>
-
-<pre class="fragment"><code>[1] 0
-</code></pre>
 
 </div>
 
-</section>
-<section data-state="prompt" data-transition="linear" data-transition-speed="default">
-<h3>glmtools</h3>
-<div class="slideContent" >
-<pre class="fragment"><code class="r">compare_to_field(nc_file, field_file,
-                 metric = &#39;thermo.depth&#39;, 
-                 as_value = TRUE)
-</code></pre>
+<div class="column column2 slideContent" style="width: 38%;" >
 
-<pre class="fragment"><code>    DateTime   obs   mod
-1 2011-05-08 2.403 5.524
-2 2011-06-05 6.027 5.001
-3 2011-06-28 4.302 3.394
-4 2011-07-19 5.334 4.123
-5 2011-08-01 5.334 3.743
-6 2011-08-15 1.372 5.334
-7 2011-08-29 4.796 6.858
-</code></pre>
 
-<pre class="fragment"><code class="r">compare_to_field(nc_file, field_file,
-                 metric = &#39;water.temperature&#39;, 
-                 as_value = FALSE)
-</code></pre>
-
-<pre class="fragment"><code>[1] 3.042
-</code></pre>
-
-</div>
-
-</section>
-<section id="section3" data-state="sub-section" data-transition="linear" data-transition-speed="default">
-<h2>glmtools</h2>
-<div class="slideContent" >
-<h2>glmtools section 3</h2>
-
-<h3>Goals</h3>
+<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
 
 <ul>
-<li>??<br/></li>
-<li>??<br/></li>
-<li>run multi-lake simulations</li>
+<li>change parameter value<br/>
+</br></li>
+<li>view nml with change</li>
 </ul>
 
 </div>
 
 </section>
 <section data-state="prompt" data-transition="linear" data-transition-speed="default">
-<h3>glmtools</h3>
-<div class="column column1 slideContent" style="width: 78%;" >
-<p>First column
-sdf<br/>
-sdf  </p>
+<h3>glmtools: re-run simulation</h3>
+<div class="column column1 slideContent" style="width: 58%;" >
+<div style="text-align: center; width: 100%;"><span class=large>glmtools Code in R:</span></div>
+
+<pre><code class="r">write_nml(glm_nml = nml, file = nml_file)
+</code></pre>
+
+<pre><code class="r">run_glm(sim_folder)
+</code></pre>
+
+<pre><code>[1] 0
+</code></pre>
 
 
 </div>
 
-<div class="column column2 slideContent" style="width: 18%;" >
+<div class="column column2 slideContent" style="width: 38%;" >
 
 
-<p>Second column<br/>
-sdf<br/>
-sdf<br/>
-sdf  </p>
+<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
+
+<ul>
+<li><p>write changed glm.nml to file  </p></li>
+<li><p>run GLM model</p></li>
+</ul>
+
+</div>
+
+</section>
+<section data-state="prompt" data-transition="linear" data-transition-speed="default">
+<h3>glmtools: evaluate model output</h3>
+<div class="column column1 slideContent" style="width: 58%;" >
+<div style="text-align: center; width: 100%;"><span class=large>glmtools Code in R:</span></div>
+
+<pre><code class="r">field_file &lt;- &#39;../glm_egs/field_data.tsv&#39;
+compare_to_field(nc_file, field_file,
+        metric = &#39;thermo.depth&#39;, 
+        as_value = TRUE)
+</code></pre>
+
+<pre><code>    DateTime   obs   mod
+1 2011-05-08 2.403 5.476
+2 2011-06-05 6.027 4.941
+3 2011-06-28 4.302 3.731
+4 2011-07-19 5.334 1.372
+5 2011-08-01 5.334 3.326
+6 2011-08-15 1.372 4.109
+7 2011-08-29 4.796 5.894
+</code></pre>
+
+<pre><code class="r">compare_to_field(nc_file, field_file,
+        metric = &#39;water.temperature&#39;, 
+        as_value = FALSE)
+</code></pre>
+
+<pre><code>[1] 3.206
+</code></pre>
+
+
+</div>
+
+<div class="column column2 slideContent" style="width: 38%;" >
+
+
+<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
+
+<ul>
+<li><p>set field observations file  </p></li>
+<li><p>compare model vs obs for metrics</p></li>
+</ul>
+
+</div>
+
+</section>
+<section id="section3" data-state="sub-section" data-transition="linear" data-transition-speed="default">
+<h2>glmtools section 3</h2>
+<div class="slideContent" >
+<p><span class=large>Goals</span></p>
+
+<ul>
+<li>Address specific questions<br/></li>
+<li>run multi-lake simulations</li>
+</ul>
 
 </div>
 

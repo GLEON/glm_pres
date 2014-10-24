@@ -24,7 +24,7 @@
 .reveal h6{color:rgb(0,51,102) !important;}
 
 .reveal p,
-.reveal li{color:rgb(150,150,150) !important;}
+.reveal li{color:rgb(120,120,120) !important;}
 
 .reveal .controls div.navigate-left,
 .reveal .controls div.navigate-left.enabled {
@@ -420,7 +420,7 @@ type:sub-section
  - run simulation with modified parameters
  
  
-glmtools evaluate model output
+glmtools: evaluate model output
 ========================================================
 type:prompt
 left: 60%
@@ -429,8 +429,8 @@ left: 60%
 ```r
 field_file <- '../glm_egs/field_data.tsv'
 compare_to_field(nc_file, field_file,
-                 metric = 'thermo.depth', 
-                 as_value = TRUE)
+        metric = 'thermo.depth', 
+        as_value = TRUE)
 ```
 
 ```
@@ -446,8 +446,8 @@ compare_to_field(nc_file, field_file,
 
 ```r
 compare_to_field(nc_file, field_file,
-          metric = 'water.temperature', 
-          as_value = FALSE)
+        metric = 'water.temperature', 
+        as_value = FALSE)
 ```
 
 ```
@@ -455,23 +455,19 @@ compare_to_field(nc_file, field_file,
 ```
 ***
 <div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
- - set output results file  
+ - set field observations file  
  
- - plot water temperatures
+ - compare model vs obs for metrics
  
-glmtools
+glmtools: modify model parameters
 ========================================================
 type:prompt
-incremental: true
+left: 60%
+<div style="text-align: center; width: 100%;"><span class=large>glmtools Code in R:</span></div>
 
 ```r
 nml <- set_nml(nml, arg_name = 'Kw', 
-               arg_val = 1.05)
-```
-
-```r
-nml <- set_nml(nml, arg_name = 'min_layer_thick',
-               arg_val = 0.15)
+          arg_val = 1.05)
 ```
 
 ```r
@@ -483,7 +479,7 @@ print(nml)
    sim_name = 'Simulationname'
    max_layers = 950
    min_layer_vol = 0.5
-   min_layer_thick = 0.15
+   min_layer_thick = 0.2
    max_layer_thick = 1.5
    Kw = 1.05
    coef_inf_entrain = 0
@@ -562,11 +558,17 @@ print(nml)
    outflow_factor = 1
 /
 ```
-
-glmtools
+***
+<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
+ - change parameter value  
+</br>
+ - view nml with change
+ 
+glmtools: re-run simulation
 ========================================================
 type:prompt
-incremental: true
+left: 60%
+<div style="text-align: center; width: 100%;"><span class=large>glmtools Code in R:</span></div>
 
 ```r
 write_nml(glm_nml = nml, file = nml_file)
@@ -579,61 +581,61 @@ run_glm(sim_folder)
 ```
 [1] 0
 ```
-glmtools
+***
+<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
+ - write changed glm.nml to file  
+ 
+ - run GLM model
+
+glmtools: evaluate model output
 ========================================================
 type:prompt
-incremental: true
+left: 60%
+<div style="text-align: center; width: 100%;"><span class=large>glmtools Code in R:</span></div>
 
 ```r
+field_file <- '../glm_egs/field_data.tsv'
 compare_to_field(nc_file, field_file,
-                 metric = 'thermo.depth', 
-                 as_value = TRUE)
+        metric = 'thermo.depth', 
+        as_value = TRUE)
 ```
 
 ```
     DateTime   obs   mod
-1 2011-05-08 2.403 5.524
-2 2011-06-05 6.027 5.001
-3 2011-06-28 4.302 3.394
-4 2011-07-19 5.334 4.123
-5 2011-08-01 5.334 3.743
-6 2011-08-15 1.372 5.334
-7 2011-08-29 4.796 6.858
+1 2011-05-08 2.403 5.476
+2 2011-06-05 6.027 4.941
+3 2011-06-28 4.302 3.731
+4 2011-07-19 5.334 1.372
+5 2011-08-01 5.334 3.326
+6 2011-08-15 1.372 4.109
+7 2011-08-29 4.796 5.894
 ```
 
 ```r
 compare_to_field(nc_file, field_file,
-                 metric = 'water.temperature', 
-                 as_value = FALSE)
+        metric = 'water.temperature', 
+        as_value = FALSE)
 ```
 
 ```
-[1] 3.042
+[1] 3.206
 ```
+***
+<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
+ - set field observations file  
+ 
+ - compare model vs obs for metrics
 
-glmtools
+glmtools section 3
 ========================================================
 id: section3
-type:sub-section
-## glmtools section 3  
-### Goals
- - ??  
- - ??  
+type:sub-section 
+<span class=large>Goals</span>
+ - Address specific questions  
  - run multi-lake simulations
  
  
-glmtools
-========================================================
-type:prompt
-left: 80%
-First column
-sdf  
-sdf  
-***
-Second column  
-sdf  
-sdf  
-sdf  
+
 
 glmtools
 ========================================================

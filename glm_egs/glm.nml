@@ -2,7 +2,7 @@
    sim_name = 'Simulationname'
    max_layers = 950
    min_layer_vol = 0.5
-   min_layer_thick = 0.15
+   min_layer_thick = 0.2
    max_layer_thick = 1.5
    Kw = 1.05
    coef_inf_entrain = 0
