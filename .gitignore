@@ -1,2 +1,4 @@
 *glm_pres.Rproj
 .Rproj.user
+*.DS_Store
+*.Rhistory
