@@ -38,6 +38,7 @@ and can run the model on all platforms (windows, mac, linux)</small>
 GLMr
 ========================================================
 incremental: true
+type:prompt
 load the GLMr package in R
 ```{r}
 library(GLMr) # 
@@ -53,6 +54,7 @@ nml_template_path()
 GLMr
 ========================================================
 incremental: true
+type:prompt
 run the GLM model on your computer
 ```{r, eval=FALSE}
 run_glm(sim_folder)
@@ -65,7 +67,7 @@ citation('GLMr')
 glmtools
 ========================================================
 type:section
-GLMr R package  
+glmtools R package  
 Maintainer: Jordan S Read  
 Authors: Jordan S Read, Luke A Winslow  
 Location: https://github.com/USGS-R/glmtools
@@ -86,6 +88,7 @@ Goals
  
 glmtools
 ========================================================
+type:prompt
 ```{r}
 library(glmtools)
 ```
@@ -103,6 +106,7 @@ plot_meteo(nml_file, fig_path = FALSE)
 
 glmtools
 ========================================================
+type:prompt
 incremental: true
 ```{r}
 nml <- read_nml(nml_file)
@@ -111,6 +115,7 @@ print(nml)
 
 glmtools
 ========================================================
+type:prompt
 incremental: true
 ```{r}
 get_nml_value(nml,'sim_name')
@@ -118,6 +123,7 @@ get_nml_value(nml,'Kw')
 ```
 glmtools
 ========================================================
+type:prompt
 incremental: false
 ```{r, plot_temp, fig.width=12, fig.height=4}
 sim_folder <- '../glm_egs'
@@ -139,6 +145,7 @@ Goals
  
 glmtools
 ========================================================
+type:prompt
 incremental: true
 ```{r}
 field_file <- '../glm_egs/field_data.tsv'
@@ -154,6 +161,7 @@ compare_to_field(nc_file, field_file,
 ```
 glmtools
 ========================================================
+type:prompt
 incremental: true
 ```{r}
 nml <- set_nml(nml, arg_name = 'Kw', 
@@ -169,6 +177,7 @@ print(nml)
 
 glmtools
 ========================================================
+type:prompt
 incremental: true
 ```{r}
 write_nml(glm_nml = nml, file = nml_file)
@@ -178,6 +187,7 @@ run_glm(sim_folder)
 ```
 glmtools
 ========================================================
+type:prompt
 incremental: true
 ```{r}
 compare_to_field(nc_file, field_file,
@@ -203,4 +213,5 @@ type:sub-section
  
 glmtools
 ========================================================
+type:prompt
 ![alt text](glm-r.png)

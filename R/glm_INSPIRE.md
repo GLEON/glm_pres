@@ -38,6 +38,7 @@ and can run the model on all platforms (windows, mac, linux)</small>
 GLMr
 ========================================================
 incremental: true
+type:prompt
 load the GLMr package in R
 
 ```r
@@ -56,6 +57,7 @@ nml_template_path()
 GLMr
 ========================================================
 incremental: true
+type:prompt
 run the GLM model on your computer
 
 ```r
@@ -91,7 +93,7 @@ may change too. Find GLM version with 'glm_version()'.
 glmtools
 ========================================================
 type:section
-GLMr R package  
+glmtools R package  
 Maintainer: Jordan S Read  
 Authors: Jordan S Read, Luke A Winslow  
 Location: https://github.com/USGS-R/glmtools
@@ -112,6 +114,7 @@ Goals
  
 glmtools
 ========================================================
+type:prompt
 
 ```r
 library(glmtools)
@@ -128,6 +131,7 @@ plot_meteo(nml_file, fig_path = FALSE)
 
 glmtools
 ========================================================
+type:prompt
 incremental: true
 
 ```r
@@ -222,6 +226,7 @@ print(nml)
 
 glmtools
 ========================================================
+type:prompt
 incremental: true
 
 ```r
@@ -241,6 +246,7 @@ get_nml_value(nml,'Kw')
 ```
 glmtools
 ========================================================
+type:prompt
 incremental: false
 
 ```r
@@ -272,6 +278,7 @@ Goals
  
 glmtools
 ========================================================
+type:prompt
 incremental: true
 
 ```r
@@ -304,6 +311,7 @@ compare_to_field(nc_file, field_file,
 ```
 glmtools
 ========================================================
+type:prompt
 incremental: true
 
 ```r
@@ -407,6 +415,7 @@ print(nml)
 
 glmtools
 ========================================================
+type:prompt
 incremental: true
 
 ```r
@@ -422,6 +431,7 @@ run_glm(sim_folder)
 ```
 glmtools
 ========================================================
+type:prompt
 incremental: true
 
 ```r
@@ -464,4 +474,5 @@ type:sub-section
  
 glmtools
 ========================================================
+type:prompt
 ![alt text](glm-r.png)
