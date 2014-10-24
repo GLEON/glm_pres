@@ -14,6 +14,39 @@
   font-size: 1.2em !important;
   line-height: 64px !important;
 }
+.state-background{background:#fff !important;}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6{color:rgb(0,51,102) !important;}
+
+.reveal p,
+.reveal li{color:rgb(150,150,150) !important;}
+
+.reveal .controls div.navigate-left,
+.reveal .controls div.navigate-left.enabled {
+  border-right-color: rgb(0,51,102);
+}
+
+.reveal .controls div.navigate-right,
+.reveal .controls div.navigate-right.enabled {
+  border-left-color: rgb(0,51,102);
+}
+
+.reveal .controls div.navigate-left.enabled:hover {
+  border-right-color: rgb(150,150,150);
+}
+
+.reveal .controls div.navigate-right.enabled:hover {
+  border-left-color: rgb(150,150,150);
+}
+
+.large a{color:rgb(0,51,102) !important;}
+
+.large a:hover{color:rgb(150,150,150)!important;}
 </style>
 Lake modeling workshop
 ========================================================
@@ -110,7 +143,7 @@ Running day  2455806, 100.00% of days complete
 ***
 <div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
 
- - Run the GLM model on your computer
+ - run the GLM model on your computer
  
 GLMr
 ========================================================
@@ -165,15 +198,16 @@ glmtools section 1
 ========================================================
 id: section1
 type:sub-section
-Goals
+<span class=large>Goals</span>
  - understand model inputs  
  - run model  
  - visualize results
   
- 
-glmtools
+glmtools model inputs: parameters
 ========================================================
 type:prompt
+left: 60%
+<div style="text-align: center; width: 100%;"><span class=large>glmtools Code in R:</span></div>
 
 ```r
 library(glmtools)
@@ -182,16 +216,10 @@ library(glmtools)
 
 ```r
 nml_file <- '../glm_egs/glm.nml'
-
-plot_meteo(nml_file, fig_path = FALSE)
 ```
 
-![plot of chunk plot_meteo](glm_INSPIRE-figure/plot_meteo.png) 
 
-glmtools
-========================================================
-type:prompt
-incremental: true
+
 
 ```r
 nml <- read_nml(nml_file)
@@ -282,11 +310,23 @@ print(nml)
    outflow_factor = 1
 /
 ```
+***
+<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
 
-glmtools
+ - load glmtools  
+ 
+ - specify location of glm.nml file  
+ 
+ - read glm.nml file into R  
+ 
+ - print (view) the contents of the nml file
+
+
+glmtools model inputs: parameters
 ========================================================
 type:prompt
-incremental: true
+left: 60%
+<div style="text-align: center; width: 100%;"><span class=large>glmtools Code in R:</span></div>
 
 ```r
 get_nml_value(nml,'sim_name')
@@ -303,46 +343,91 @@ get_nml_value(nml,'Kw')
 ```
 [1] 0.55
 ```
-glmtools
+***
+<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
+
+ - get values for specific parameters 
+
+glmtools model inputs: meteorological drivers
 ========================================================
 type:prompt
-incremental: false
+left: 60%
+<div style="text-align: center; width: 100%;"><span class=large>glmtools Code in R:</span></div>
+
+
+```r
+plot_meteo(nml_file)
+```
+
+![plot of chunk plot_meteo](glm_INSPIRE-figure/plot_meteo.png) 
+***
+<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
+ - plot meteorological drivers for simulation
+ 
+
+glmtools run model
+========================================================
+type:prompt
+left: 60%
+<div style="text-align: center; width: 100%;"><span class=large>glmtools Code in R:</span></div>
 
 ```r
 sim_folder <- '../glm_egs'
+```
+
+```r
 run_glm(sim_folder)
 ```
 
 ```
 [1] 0
 ```
+***
+<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
+ - set simulation folder for GLM  
+ 
+ - run GLM model
+ 
+glmtools visualize results
+========================================================
+type:prompt
+left: 60%
+<div style="text-align: center; width: 100%;"><span class=large>glmtools Code in R:</span></div>
+
 
 ```r
 nc_file <- file.path(sim_folder,'output.nc')
+```
+
+```r
 plot_temp(file = nc_file, fig_path = FALSE)
 ```
 
 ![plot of chunk plot_temp](glm_INSPIRE-figure/plot_temp.png) 
-
-glmtools
+***
+<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
+ - set output results file  
+ 
+ - plot water temperatures
+ 
+glmtools section 2
 ========================================================
 id: section2
-type:sub-section
-glmtools section 2  
-Goals
+type:sub-section 
+<span class=large>Goals</span>
  - validate/evaluate model outputs
  - modify model parameters  
  - run simulation with modified parameters
  
  
-glmtools
+glmtools evaluate model output
 ========================================================
 type:prompt
-incremental: true
+left: 60%
+<div style="text-align: center; width: 100%;"><span class=large>glmtools Code in R:</span></div>
 
 ```r
 field_file <- '../glm_egs/field_data.tsv'
-
 compare_to_field(nc_file, field_file,
                  metric = 'thermo.depth', 
                  as_value = TRUE)
@@ -361,13 +446,19 @@ compare_to_field(nc_file, field_file,
 
 ```r
 compare_to_field(nc_file, field_file,
-                 metric = 'water.temperature', 
-                 as_value = FALSE)
+          metric = 'water.temperature', 
+          as_value = FALSE)
 ```
 
 ```
 [1] 3.031
 ```
+***
+<div style="text-align: left; width: 100%;"><span class=large>   Explanation</span></div>
+ - set output results file  
+ 
+ - plot water temperatures
+ 
 glmtools
 ========================================================
 type:prompt
