@@ -72,8 +72,17 @@ type:prompt
 more stuff
 
 Why R?
-====================================
-more stuff
+========================================================
+- **Performace**: stable, light and fast
+- **Support network** 
+ - documentation, community, developers
+- **Reproducibility**
+ - anyone anywhere can reproduce results
+ - enables dissemination (RPubs, RMarkdown, .RPres) - this presentation is a .Rmd file!
+- **Versatility**: unified solution to *almost* any numerical problem, graphical capabilities
+- **Ethics** removes economic barrier to statistics, is open and democratic
+
+<small>(borrowed from @Robinlovelace)</small>
 
 GLMr
 ========================================================
