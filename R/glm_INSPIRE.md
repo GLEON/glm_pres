@@ -254,6 +254,26 @@ type:sub-section
  - **run model**
  - **visualize results**
   </span>
+
+glmtools model inputs: parameters
+========================================================
+
+ - **Excercise:** put example data in your own folder
+
+```r
+library(glmtools)
+```
+
+```r
+system.file('extdata',package = 'glmtools')
+```
+
+```
+[1] "/Library/Frameworks/R.framework/Versions/3.1/Resources/library/glmtools/extdata"
+```
+ > move example data into your own folder (mine is *glm_egs*)
+  
+
 glmtools model inputs: parameters
 ========================================================
 type:prompt
