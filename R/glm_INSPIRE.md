@@ -64,7 +64,7 @@ type:sub-section
 GLM overview
 ====================================
 type:sub-section
-![model output](../figures/modeled.png)
+![model output](../figures/test_figure.png)
 
 GLM overview
 ====================================
@@ -226,11 +226,11 @@ glmtools section 1
 ========================================================
 id: section1
 type:sub-section
-<span class=large>Goals</span>
- - understand model inputs  
- - run model  
- - visualize results
-  
+<span class=large>**Goals**
+ - **understand model inputs**  
+ - **run model**
+ - **visualize results**
+  </span>
 glmtools model inputs: parameters
 ========================================================
 type:prompt
@@ -442,11 +442,11 @@ glmtools section 2
 ========================================================
 id: section2
 type:sub-section 
-<span class=large>Goals</span>
- - validate/evaluate model outputs
- - modify model parameters  
- - run simulation with modified parameters
- 
+<span class=large>**Goals**
+ - **validate/evaluate model outputs**
+ - **modify model parameters**  
+ - **run simulation with modified parameters**
+ </span>
  
 glmtools: evaluate model output
 ========================================================
@@ -658,14 +658,8 @@ glmtools section 3
 ========================================================
 id: section3
 type:sub-section 
-<span class=large>Goals</span>
- - Address specific questions  
- - run multi-lake simulations
+<span class=large>**Goals**
+ - **address specific questions**
+ - **run multi-lake simulations**
+ </span>
  
- 
-
-
-glmtools
-========================================================
-stuffs
-
