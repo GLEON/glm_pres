@@ -50,21 +50,44 @@
 </style>
 Lake modeling workshop
 ========================================================
-author: Jordan S Read, Paul C Hanson, Hilary Dugan, Craig Snortheim
+author: Jordan S Read, Paul C Hanson, Hilary Dugan, Craig Snortheim, Luke A Winslow
 font-family: 'Helvetica'
 width: 1440
 height: 900
 
+Goals for Part II of today's workshop
+========================================================
+- **GLM**: basic understanding of lake model
+- **GLMr**: run GLM from R, keep up-to-date version 
+- **glmtools**: reproducible model results handling and visualizations
+- **What's next?**: linking lake models to catchment hydrology
 
-GLM overview
+
+
+Lake modeling overview
 ====================================
 type:sub-section
 ![lake schematic](../figures/lake_schematic.png)
 
-GLM overview
+Lake modeling overview
 ====================================
 type:sub-section
 ![model output](../figures/test_figure.png)
+
+GLM
+========================================================
+type:section
+
+<div class="indent large">GLM "General Lake Model"</div>
+<div class="indent large">Authors: Matthew R Hipsey, Louise C Bruce, David P Hamilton</div>
+<div class="indent large">Location: <a target="_blank" title="GLM website" href="http://aed.see.uwa.edu.au/research/models/GLM/">http://aed.see.uwa.edu.au/research/models/GLM/</a></div>
+
+The GLM model has been developed as an initiative of the Global Lake Ecological Observatory Network (GLEON) and in collaboration with the Aquatic Ecosystem Modelling Network (AEMON) that started in 2010. The model was first introduced in Leipzig at the 2nd Lake Ecosystem Modelling Symposium in 2012, and has since developed rapidly with application to numerous lakes within the GLEON network and beyond.
+
+GLM overview
+====================================
+type:sub-section
+![model output](../figures/GLM_Diagram_lowres.jpg)
 
 GLM overview
 ====================================
@@ -99,9 +122,9 @@ Why R?
  - anyone anywhere can reproduce results
  - enables dissemination - this presentation is a .Rmd file!
 - **Versatility**: unified solution to *almost* any numerical problem, graphical capabilities
-- **Ethics** removes economic barrier to statistics, is open and democratic
+- **Testing**: integrated "R package" testing limits bugs
 
-<small>(borrowed from @Robinlovelace)</small>
+<small>(some content borrowed from @Robinlovelace)</small>
 
 GLMr
 ========================================================
