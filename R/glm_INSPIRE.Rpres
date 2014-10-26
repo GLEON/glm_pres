@@ -58,18 +58,37 @@ height: 900
 
 GLM overview
 ====================================
-id: slide1
-type:section
+type:sub-section
+![lake schematic](../figures/lake_schematic.png)
 
 GLM overview
 ====================================
 type:sub-section
-more stuff
+![model output](../figures/modeled.png)
 
 GLM overview
 ====================================
-type:prompt
-more stuff
+type:sub-section
+![glm directory](../figures/glm_dir.png)
+
+GLM overview
+====================================
+type:sub-section
+left: 50%
+![simulation directory](../figures/sim_dir.png)
+***
+![files for GLM](../figures/nml_drivers.png)
+
+
+GLM overview
+====================================
+type:sub-section
+![created by GLM](../figures/sim_out.png)
+
+GLM results (Craig)
+====================================
+type:sub-section
+
 
 Why R?
 ========================================================
@@ -78,7 +97,7 @@ Why R?
  - documentation, community, developers
 - **Reproducibility**
  - anyone anywhere can reproduce results
- - enables dissemination (RPubs, RMarkdown, .RPres) - this presentation is a .Rmd file!
+ - enables dissemination - this presentation is a .Rmd file!
 - **Versatility**: unified solution to *almost* any numerical problem, graphical capabilities
 - **Ethics** removes economic barrier to statistics, is open and democratic
 
@@ -390,4 +409,4 @@ type:sub-section
 glmtools
 ========================================================
 stuffs
-![alt text](glm-r.png)
+
